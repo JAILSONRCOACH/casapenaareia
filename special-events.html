@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eventos Especiais - Casa Pé na Areia | Caminho de Moisés</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Fontes Google -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+  <!-- Font Awesome para ícones mais elegantes -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <!-- AOS para animações de scroll -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+</head>
+<body>
+
+  <!-- CABEÇALHO -->
+  <header class="top-header header-light">
+    <div class="menu-trigger" id="menu-trigger">
+      <span class="menu-icon"><i class="fas fa-bars"></i></span>
+      <span class="menu-text">MENU</span>
+    </div>
+    <button class="booking-button">
+      RESERVAR AGORA
+    </button>
+  </header>
+
+  <!-- MENU LATERAL -->
+  <nav class="sidebar" id="sidebar">
+    <div class="close-btn" id="close-btn"><i class="fas fa-times"></i></div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">Sobre</a></li>
+      <li><a href="gallery.html">Galeria</a></li>
+      <li><a href="suites.html">Suítes</a></li>
+      <li><a href="offers.html">Ofertas</a></li>
+      <li><a href="recreation.html">Recreação</a></li>
+      <li><a href="culture.html">Cultura</a></li>
+      <li><a href="special-events.html" class="active">Eventos Especiais</a></li>
+      <li><a href="contact.html">Contato</a></li>
+    </ul>
+  </nav>
+
+  <!-- CONTEÚDO PRINCIPAL -->
+  <main>
+    <!-- Cabeçalho da página -->
+    <div class="page-header" style="background-image: url('images/events-header.jpg');">
+      <h1>Eventos Especiais</h1>
+    </div>
+    
+    <!-- Seção de Introdução -->
+    <section class="section events-intro-section">
+      <h2>Momentos Inesquecíveis à Beira-Mar</h2>
+      <p class="events-intro">
+        Celebre os momentos mais importantes da sua vida em um cenário paradisíaco. A Casa Pé na Areia 
+        oferece o ambiente perfeito para eventos exclusivos, onde o luxo encontra a beleza natural, 
+        criando uma experiência verdadeiramente única para você e seus convidados.
+      </p>
+      
+      <div class="events-statement" data-aos="fade-up">
+        <div class="statement-line"></div>
+        <h3>Cada detalhe importa. Cada momento é único.</h3>
+        <div class="statement-line"></div>
+      </div>
+    </section>
+    
+    <!-- Tipos de Eventos -->
+    <section class="section events-types-section">
+      <div class="events-types">
+        <!-- Casamentos -->
+        <div class="event-type" data-aos="fade-up">
+          <div class="event-type-image">
+            <img src="images/wedding-event.jpg" alt="Casamento à Beira-Mar">
+            <div class="event-type-overlay">
+              <div class="event-type-icon">
+                <i class="fas fa-heart"></i>
+              </div>
+            </div>
+          </div>
+          <div class="event-type-content">
+            <h3>Casamentos</h3>
+            <p>
+              Diga "sim" com o pôr do sol como testemunha e o som das ondas como trilha sonora. 
+              Nossos espaços versáteis podem acomodar desde cerimônias íntimas até celebrações 
+              sofisticadas para até 150 convidados.
+            </p>
+            <ul class="event-features">
+              <li><i class="fas fa-check"></i> Cerimônias à beira-mar</li>
+              <li><i class="fas fa-check"></i> Recepções sob as estrelas</li>
+              <li><i class="fas fa-check"></i> Pacotes personalizados</li>
+              <li><i class="fas fa-check"></i> Suíte exclusiva para noivos</li>
+            </ul>
+            <a href="#request-quote" class="event-link js-scroll-trigger">Solicitar Orçamento</a>
+          </div>
+        </div>
+        
+        <!-- Aniversários e Celebrações -->
+        <div class="event-type reverse" data-aos="fade-up" data-aos-delay="100">
+          <div class="event-type-image">
+            <img src="images/birthday-event.jpg" alt="Aniversário">
+            <div class="event-type-overlay">
+              <div class="event-type-icon">
+                <i class="fas fa-gift"></i>
+              </div>
+            </div>
+          </div>
+          <div class="event-type-content">
+            <h3>Aniversários e Celebrações</h3>
+            <p>
+              Comemore datas especiais em grande estilo. Seja uma festa surpresa, um aniversário 
+              significativo ou reunião familiar, criamos uma experiência personalizada que 
+              ficará na memória de todos os presentes.
+            </p>
+            <ul class="event-features">
+              <li><i class="fas fa-check"></i> Decoração personalizada</li>
+              <li><i class="fas fa-check"></i> Menu gourmet sob medida</li>
+              <li><i class="fas fa-check"></i> Experiências exclusivas</li>
+              <li><i class="fas fa-check"></i> Fotografia profissional</li>
+            </ul>
+            <a href="#request-quote" class="event-link js-scroll-trigger">Solicitar Orçamento</a>
+          </div>
+        </div>
+        
+        <!-- Eventos Corporativos -->
+        <div class="event-type" data-aos="fade-up" data-aos-delay="200">
+          <div class="event-type-image">
+            <img src="images/corporate-event.jpg" alt="Evento Corporativo">
+            <div class="event-type-overlay">
+              <div class="event-type-icon">
+                <i class="fas fa-briefcase"></i>
+              </div>
+            </div>
+          </div>
+          <div class="event-type-content">
+            <h3>Eventos Corporativos</h3>
+            <p>
+              Transforme reuniões de trabalho em experiências inspiradoras. Nossos espaços 
+              oferecem o ambiente ideal para retiros executivos, team buildings, lançamentos 
+              de produtos ou confraternizações empresariais.
+            </p>
+            <ul class="event-features">
+              <li><i class="fas fa-check"></i> Salas de reunião equipadas</li>
+              <li><i class="fas fa-check"></i> Atividades de integração</li>
+              <li><i class="fas fa-check"></i> Wi-Fi de alta velocidade</li>
+              <li><i class="fas fa-check"></i> Serviço de coffee break</li>
+            </ul>
+            <a href="#request-quote" class="event-link js-scroll-trigger">Solicitar Orçamento</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Espaços para Eventos -->
+    <section class="event-spaces-section" style="background-image: url('images/spaces-bg.jpg')">
+      <div class="spaces-overlay"></div>
+      <div class="spaces-content" data-aos="fade-up">
+        <h2>Nossos Espaços</h2>
+        <p>
+          A Casa Pé na Areia oferece ambientes versáteis que podem ser adaptados 
+          para qualquer tipo de evento, proporcionando sempre uma vista deslumbrante 
+          para o mar e o conforto que seus convidados merecem.
+        </p>
+        
+        <div class="spaces-grid">
+          <div class="space-card">
+            <h3>Deck Panorâmico</h3>
+            <div class="space-details">
+              <span><i class="fas fa-users"></i> Até 150 pessoas</span>
+              <span><i class="fas fa-vector-square"></i> 300m²</span>
+            </div>
+            <p>Ambiente ao ar livre com vista 180° para o mar, perfeito para cerimônias e recepções.</p>
+          </div>
+          
+          <div class="space-card">
+            <h3>Salão Cristal</h3>
+            <div class="space-details">
+              <span><i class="fas fa-users"></i> Até 100 pessoas</span>
+              <span><i class="fas fa-vector-square"></i> 200m²</span>
+            </div>
+            <p>Espaço elegante com paredes de vidro que proporcionam vista para o mar e decoração sofisticada.</p>
+          </div>
+          
+          <div class="space-card">
+            <h3>Gazebo Praia</h3>
+            <div class="space-details">
+              <span><i class="fas fa-users"></i> Até 50 pessoas</span>
+              <span><i class="fas fa-vector-square"></i> 80m²</span>
+            </div>
+            <p>Estrutura à beira-mar, ideal para cerimônias intimistas e eventos especiais ao pôr do sol.</p>
+          </div>
+          
+          <div class="space-card">
+            <h3>Sala Executiva</h3>
+            <div class="space-details">
+              <span><i class="fas fa-users"></i> Até 30 pessoas</span>
+              <span><i class="fas fa-vector-square"></i> 60m²</span>
+            </div>
+            <p>Ambiente equipado com tecnologia audiovisual, perfeito para reuniões corporativas e apresentações.</p>
+          </div>
+        </div>
+        
+        <button class="spaces-button js-modal-trigger" data-modal="spaces-modal">Ver Galeria de Espaços</button>
+      </div>
+    </section>
+    
+    <!-- Serviços e Fornecedores -->
+    <section class="section services-section">
+      <h2>Serviços & Fornecedores</h2>
+      <p class="section-intro">
+        Nossa equipe trabalha com os melhores profissionais para garantir que 
+        cada detalhe do seu evento seja impecável.
+      </p>
+      
+      <div class="services-grid">
+        <div class="service-item" data-aos="fade-up">
+          <div class="service-icon">
+            <i class="fas fa-utensils"></i>
+          </div>
+          <h3>Gastronomia</h3>
+          <p>
+            Menu personalizado criado por nosso chef executivo, utilizando ingredientes 
+            frescos e locais para uma experiência gastronômica memorável.
+          </p>
+        </div>
+        
+        <div class="service-item" data-aos="fade-up" data-aos-delay="100">
+          <div class="service-icon">
+            <i class="fas fa-glass-cheers"></i>
+          </div>
+          <h3>Bar Premium</h3>
+          <p>
+            Seleção exclusiva de bebidas finas, coquetéis personalizados e opções 
+            de open bar adaptadas às suas preferências.
+          </p>
+        </div>
+        
+        <div class="service-item" data-aos="fade-up" data-aos-delay="200">
+          <div class="service-icon">
+            <i class="fas fa-music"></i>
+          </div>
+          <h3>Música & Entretenimento</h3>
+          <p>
+            Parcerias com DJs, bandas e artistas que podem criar a atmosfera perfeita 
+            para seu evento, desde música ambiente até shows especiais.
+          </p>
+        </div>
+        
+        <div class="service-item" data-aos="fade-up" data-aos-delay="300">
+          <div class="service-icon">
+            <i class="fas fa-camera"></i>
+          </div>
+          <h3>Fotografia & Vídeo</h3>
+          <p>
+            Profissionais talentosos que capturam cada momento especial do seu evento, 
+            criando memórias que durarão para sempre.
+          </p>
+        </div>
+        
+        <div class="service-item" data-aos="fade-up" data-aos-delay="400">
+          <div class="service-icon">
+            <i class="fas fa-flower-daffodil"></i>
+          </div>
+          <h3>Decoração</h3>
+          <p>
+            Arranjos florais e elementos decorativos personalizados que complementam 
+            a beleza natural do nosso cenário à beira-mar.
+          </p>
+        </div>
+        
+        <div class="service-item" data-aos="fade-up" data-aos-delay="500">
+          <div class="service-icon">
+            <i class="fas fa-clipboard-list"></i>
+          </div>
+          <h3>Coordenação Completa</h3>
+          <p>
+            Nossa equipe de eventos cuida de cada detalhe, desde o planejamento inicial 
+            até a execução perfeita no dia do evento.
+          </p>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Depoimentos -->
+    <section class="events-testimonials-section">
+      <div class="testimonials-container" data-aos="fade-up">
+        <h2>O Que Nossos Clientes Dizem</h2>
+        
+        <div class="testimonials-slider">
+          <div class="testimonial-card active">
+            <div class="testimonial-content">
+              <i class="fas fa-quote-left"></i>
+              <p>
+                "Nosso casamento na Casa Pé na Areia foi um sonho realizado. O cenário 
+                natural já é deslumbrante por si só, mas a equipe elevou a experiência 
+                a outro nível com sua atenção aos detalhes e serviço impecável."
+              </p>
+              <div class="testimonial-author">
+                <strong>Mariana e Rafael</strong>
+                <span>Casamento - Março 2024</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="testimonial-card">
+            <div class="testimonial-content">
+              <i class="fas fa-quote-left"></i>
+              <p>
+                "Realizamos nosso retiro anual de liderança na Casa Pé na Areia e foi uma 
+                experiência transformadora. O ambiente inspirador, combinado com o serviço 
+                excepcional, proporcionou o equilíbrio perfeito entre trabalho e relaxamento."
+              </p>
+              <div class="testimonial-author">
+                <strong>Carlos Mendes</strong>
+                <span>Diretor Executivo - Empresa XYZ</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="testimonial-card">
+            <div class="testimonial-content">
+              <i class="fas fa-quote-left"></i>
+              <p>
+                "Minha festa de 50 anos foi exatamente como sonhei. A equipe cuidou de tudo 
+                com tanto carinho e profissionalismo que pude realmente aproveitar cada 
+                momento com meus convidados. Um dia inesquecível!"
+              </p>
+              <div class="testimonial-author">
+                <strong>Beatriz Oliveira</strong>
+                <span>Aniversário - Dezembro 2024</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="testimonial-dots">
+          <span class="dot active" data-slide="0"></span>
+          <span class="dot" data-slide="1"></span>
+          <span class="dot" data-slide="2"></span>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Solicitação de Orçamento -->
+    <section id="request-quote" class="section quote-section">
+      <h2>Solicite um Orçamento</h2>
+      <p class="section-intro">
+        Estamos ansiosos para transformar seu evento em uma experiência inesquecível. 
+        Preencha o formulário abaixo e nossa equipe entrará em contato em até 24 horas.
+      </p>
+      
+      <div class="quote-container" data-aos="fade-up">
+        <form class="quote-form">
+          <div class="form-group">
+            <label for="name">Nome Completo</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email">E-mail</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="phone">Telefone</label>
+              <input type="tel" id="phone" name="phone" required>
+            </div>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="event-type">Tipo de Evento</label>
+              <select id="event-type" name="event-type" required>
+                <option value="" disabled selected>Selecione</option>
+                <option value="wedding">Casamento</option>
+                <option value="birthday">Aniversário</option>
+                <option value="corporate">Evento Corporativo</option>
+                <option value="other">Outro</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label for="guests">Número de Convidados</label>
+              <input type="number" id="guests" name="guests" min="1" required>
+            </div>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="event-date">Data do Evento</label>
+              <input type="date" id="event-date" name="event-date" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="budget">Orçamento Aproximado</label>
+              <select id="budget" name="budget">
+                <option value="" disabled selected>Selecione</option>
+                <option value="budget-1">R$ 10.000 - R$ 25.000</option>
+                <option value="budget-2">R$ 25.000 - R$ 50.000</option>
+                <option value="budget-3">R$ 50.000 - R$ 100.000</option>
+                <option value="budget-4">R$ 100.000+</option>
+              </select>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="message">Mensagem</label>
+            <textarea id="message" name="message" rows="5" placeholder="Conte-nos mais sobre o seu evento e qualquer detalhe importante..."></textarea>
+          </div>
+          
+          <button type="submit" class="form-button">Enviar Solicitação</button>
+        </form>
+        
+        <div class="quote-contact">
+          <h3>Contato Direto</h3>
+          <p>Prefere falar conosco diretamente? Entre em contato por:</p>
+          
+          <div class="contact-info">
+            <div class="contact-item">
+              <i class="fas fa-phone"></i>
+              <span>+55 (XX) XXXX-XXXX</span>
+            </div>
+            
+            <div class="contact-item">
+              <i class="fas fa-envelope"></i>
+              <span>eventos@casapenareia.com.br</span>
+            </div>
+            
+            <div class="contact-item">
+              <i class="fab fa-whatsapp"></i>
+              <span>+55 (XX) XXXXX-XXXX</span>
+            </div>
+          </div>
+          
+          <p class="response-time">
+            <i class="fas fa-clock"></i> Respondemos em até 24 horas úteis.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- RODAPÉ -->
+  <footer>
+    <p>&copy; 2025 Casa Pé na Areia – Caminho de Moisés. Todos os direitos reservados.</p>
+  </footer>
+
+  <!-- MODAL DE GALERIA DE ESPAÇOS -->
+  <div class="modal" id="spaces-modal">
+    <div class="modal-content">
+      <span class="modal-close">&times;</span>
+      <h2>Galeria de Espaços</h2>
+      <div class="modal-gallery">
+        <div class="gallery-item">
+          <img src="images/space-deck.jpg" alt="Deck Panorâmico">
+          <div class="gallery-caption">Deck Panorâmico</div>
+        </div>
+        <div class="gallery-item">
+          <img src="images/space-crystal.jpg" alt="Salão Cristal">
+          <div class="gallery-caption">Salão Cristal</div>
+        </div>
+        <div class="gallery-item">
+          <img src="images/space-gazebo.jpg" alt="Gazebo Praia">
+          <div class="gallery-caption">Gazebo Praia</div>
+        </div>
+        <div class="gallery-item">
+          <img src="images/space-executive.jpg" alt="Sala Executiva">
+          <div class="gallery-caption">Sala Executiva</div>
+        </div>
+        <div class="gallery-item">
+          <img src="images/space-setup-1.jpg" alt="Montagem Casamento">
+          <div class="gallery-caption">Montagem para Casamento</div>
+        </div>
+        <div class="gallery-item">
+          <img src="images/space-setup-2.jpg" alt="Montagem Corporativo">
+          <div class="gallery-caption">Montagem para Evento Corporativo</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCRIPTS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  
+  <script>
+    // Script para menu lateral
+    const menuTrigger = document.getElementById('menu-trigger');
+    const sidebar = document.getElementById('sidebar');
+    const closeBtn = document.getElementById('close-btn');
+
+    menuTrigger.addEventListener('click', () => {
+      sidebar.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    });
+
+    closeBtn.addEventListener('click', () => {
+      sidebar.classList.remove('active');
+      document.body.style.overflow = '';
+    });
+    
+    // Inicialização das animações AOS
+    AOS.init({
+      duration: 800,
+      easing: 'ease-out',
+      once: true
+    });
+    
+    // Funcionamento dos modais
+    document.addEventListener('DOMContentLoaded', function() {
+      const modalTriggers = document.querySelectorAll('.js-modal-trigger');
+      const modalCloses = document.querySelectorAll('.modal-close');
+      
+      modalTriggers.forEach(trigger => {
+        trigger.addEventListener('click', function(e) {
+          e.preventDefault();
+          const modalId = this.getAttribute('data-modal');
+          const modal = document.getElementById(modalId);
+          modal.classList.add('is-active');
+          document.body.style.overflow = 'hidden';
+        });
+      });
+      
+      modalCloses.forEach(close => {
+        close.addEventListener('click', function() {
+          this.closest('.modal').classList.remove('is-active');
+          document.body.style.overflow = '';
+        });
+      });
+      
+      // Fechar modal ao clicar fora
+      window.addEventListener('click', function(e) {
+        if (e.target.classList.contains('modal')) {
+          e.target.classList.remove('is-active');
+          document.body.style.overflow = '';
+        }
+      });
+      
+      // Scroll suave para links internos
+      document.querySelectorAll('.js-scroll-trigger').forEach(trigger => {
+        trigger.addEventListener('click', function(e) {
+          e.preventDefault();
+          const targetId = this.getAttribute('href');
+          const targetElement = document.querySelector(targetId);
+          
+          window.scrollTo({
+            top: targetElement.offsetTop - 100,
+            behavior: 'smooth'
+          });
+        });
+      });
+      
+      // Slider de depoimentos
+      const testimonialDots = document.querySelectorAll('.dot');
+      const testimonialCards = document.querySelectorAll('.testimonial-card');
+      
+      testimonialDots.forEach(dot => {
+        dot.addEventListener('click', function() {
+          const slideIndex = this.getAttribute('data-slide');
+          
+          // Remove active class from all dots and cards
+          testimonialDots.forEach(d => d.classList.remove('active'));
+          testimonialCards.forEach(c => c.classList.remove('active'));
+          
+          // Add active class to current dot and card
+          this.classList.add('active');
+          testimonialCards[slideIndex].classList.add('active');
+        });
+      });
+      
+      // Auto-rotate testimonials
+      let currentSlide = 0;
+      const totalSlides = testimonialCards.length;
+      
+      setInterval(() => {
+        testimonialCards[currentSlide].classList.remove('active');
+        testimonialDots[currentSlide].classList.remove('active');
+        
+        currentSlide = (currentSlide + 1) % totalSlides;
+        
+        testimonialCards[currentSlide].classList.add('active');
+        testimonialDots[currentSlide].classList.add('active');
+      }, 6000);
+    });
+  </script>
+</body>
+</html>
