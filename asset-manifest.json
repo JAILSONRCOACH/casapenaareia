@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/casapenaareia/static/css/main.e3717d00.css",
+    "main.js": "/casapenaareia/static/js/main.5b80705d.js",
+    "index.html": "/casapenaareia/index.html",
+    "main.e3717d00.css.map": "/casapenaareia/static/css/main.e3717d00.css.map",
+    "main.5b80705d.js.map": "/casapenaareia/static/js/main.5b80705d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e3717d00.css",
+    "static/js/main.5b80705d.js"
+  ]
+}
