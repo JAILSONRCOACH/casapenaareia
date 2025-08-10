@@ -2,55 +2,100 @@ import React, { useEffect } from "react";
 import "../assets/style.css";
 
 export default function Amenities() {
+  // ---- Header/Sidebar ----
   useEffect(() => {
     const menuTrigger = document.getElementById("menu-trigger");
     const sidebar = document.getElementById("sidebar");
     const closeBtn = document.getElementById("close-btn");
 
-    if (menuTrigger && sidebar && closeBtn) {
-      const openMenu = () => {
-        sidebar.classList.add("active");
-        document.body.style.overflow = "hidden";
-      };
+    const openMenu = () => {
+      if (!sidebar) return;
+      sidebar.classList.add("active");
+      document.body.style.overflow = "hidden";
+    };
 
-      const closeMenu = () => {
-        sidebar.classList.remove("active");
-        document.body.style.overflow = "";
-      };
+    const closeMenu = () => {
+      if (!sidebar) return;
+      sidebar.classList.remove("active");
+      document.body.style.overflow = "";
+    };
 
-      menuTrigger.addEventListener("click", openMenu);
-      closeBtn.addEventListener("click", closeMenu);
+    const handleDocClick = (event) => {
+      if (
+        sidebar &&
+        menuTrigger &&
+        !sidebar.contains(event.target) &&
+        !menuTrigger.contains(event.target) &&
+        sidebar.classList.contains("active")
+      ) {
+        closeMenu();
+      }
+    };
 
-      document.addEventListener("click", function (event) {
-        if (
-          !sidebar.contains(event.target) &&
-          !menuTrigger.contains(event.target) &&
-          sidebar.classList.contains("active")
-        ) {
-          sidebar.classList.remove("active");
-          document.body.style.overflow = "";
-        }
-      });
+    if (menuTrigger) menuTrigger.addEventListener("click", openMenu);
+    if (closeBtn) closeBtn.addEventListener("click", closeMenu);
+    document.addEventListener("click", handleDocClick);
 
-      return () => {
-        menuTrigger.removeEventListener("click", openMenu);
-        closeBtn.removeEventListener("click", closeMenu);
-      };
-    }
+    return () => {
+      if (menuTrigger) menuTrigger.removeEventListener("click", openMenu);
+      if (closeBtn) closeBtn.removeEventListener("click", closeMenu);
+      document.removeEventListener("click", handleDocClick);
+    };
   }, []);
 
+  // ---- CDN: jQuery + Lightbox (ordem garantida) ----
   useEffect(() => {
-    const script1 = document.createElement("script");
-    script1.src =
-      "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js";
-    script1.async = true;
+    const ensureCss = (id, href) => {
+      if (!document.getElementById(id)) {
+        const link = document.createElement("link");
+        link.id = id;
+        link.rel = "stylesheet";
+        link.href = href;
+        link.crossOrigin = "anonymous";
+        document.head.appendChild(link);
+      }
+    };
 
-    const script2 = document.createElement("script");
-    script2.src =
-      "https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js";
-    script2.async = true;
+    const ensureScript = (id, src) =>
+      new Promise((resolve) => {
+        const exist = document.getElementById(id);
+        if (exist) return resolve();
+        const s = document.createElement("script");
+        s.id = id;
+        s.src = src;
+        s.async = false; // mantém ordem
+        s.defer = true;
+        s.onload = resolve;
+        document.body.appendChild(s);
+      });
 
-    script2.onload = () => {
+    // CSS (uma vez só)
+    ensureCss(
+      "lightbox-css",
+      "https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css"
+    );
+    ensureCss(
+      "fa-css",
+      "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    );
+
+    let alive = true;
+
+    (async () => {
+      // jQuery primeiro
+      await ensureScript(
+        "jquery-cdn",
+        "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+      );
+      if (!alive) return;
+
+      // depois Lightbox
+      await ensureScript(
+        "lightbox-cdn",
+        "https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"
+      );
+      if (!alive) return;
+
       if (window.lightbox) {
         window.lightbox.option({
           resizeDuration: 200,
@@ -61,14 +106,11 @@ export default function Amenities() {
           showImageNumberLabel: true,
         });
       }
-    };
+    })();
 
-    document.body.appendChild(script1);
-    document.body.appendChild(script2);
-
+    // não remove CDNs no unmount
     return () => {
-      document.body.removeChild(script1);
-      document.body.removeChild(script2);
+      alive = false;
     };
   }, []);
 
@@ -81,7 +123,14 @@ export default function Amenities() {
           </span>
           <span className="menu-text">MENU</span>
         </div>
-        <button className="booking-button">RESERVAR AGORA</button>
+        <a
+          href="https://wa.me/558330112982?text=Ol%C3%A1%21%20Quero%20reservar%20na%20Casa%20P%C3%A9%20na%20Areia%20%E2%80%93%20Caminho%20de%20Mois%C3%A9s."
+          target="_blank"
+          rel="noreferrer"
+          className="booking-button"
+        >
+          RESERVAR AGORA
+        </a>
       </header>
 
       <nav className="sidebar" id="sidebar">

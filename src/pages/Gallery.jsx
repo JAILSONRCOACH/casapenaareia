@@ -2,63 +2,100 @@ import React, { useEffect } from "react";
 import "../assets/style.css";
 
 export default function Gallery() {
+  // ---- Carrega CSS/JS externos (ordem garantida) ----
   useEffect(() => {
-    // Scripts externos
-    const jqueryScript = document.createElement("script");
-    jqueryScript.src =
-      "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js";
-    jqueryScript.async = true;
+    const ensureCss = (id, href) => {
+      if (!document.getElementById(id)) {
+        const link = document.createElement("link");
+        link.id = id;
+        link.rel = "stylesheet";
+        link.href = href;
+        link.crossOrigin = "anonymous";
+        document.head.appendChild(link);
+      }
+    };
 
-    const lightboxScript = document.createElement("script");
-    lightboxScript.src =
-      "https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js";
-    lightboxScript.async = true;
+    const ensureScript = (id, src) =>
+      new Promise((resolve) => {
+        const existing = document.getElementById(id);
+        if (existing) return resolve();
+        const s = document.createElement("script");
+        s.id = id;
+        s.src = src;
+        s.async = false; // mantém ordem
+        s.defer = true;
+        s.onload = resolve;
+        document.body.appendChild(s);
+      });
 
-    document.body.appendChild(jqueryScript);
-    document.body.appendChild(lightboxScript);
+    // CSS (uma vez só)
+    ensureCss(
+      "lightbox-css",
+      "https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css"
+    );
+    ensureCss(
+      "fa-css",
+      "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    );
 
-    // Estilos
-    const lightboxCSS = document.createElement("link");
-    lightboxCSS.rel = "stylesheet";
-    lightboxCSS.href =
-      "https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css";
-    document.head.appendChild(lightboxCSS);
+    let alive = true;
 
-    const fontAwesome = document.createElement("link");
-    fontAwesome.rel = "stylesheet";
-    fontAwesome.href =
-      "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css";
-    document.head.appendChild(fontAwesome);
+    (async () => {
+      // jQuery primeiro
+      await ensureScript(
+        "jquery-cdn",
+        "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+      );
+      if (!alive) return;
+      // depois Lightbox
+      await ensureScript(
+        "lightbox-cdn",
+        "https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"
+      );
+      if (!alive) return;
 
+      if (window.lightbox) {
+        window.lightbox.option({
+          resizeDuration: 200,
+          wrapAround: true,
+          fadeDuration: 300,
+          albumLabel: "Imagem %1 de %2",
+          alwaysShowNavOnTouchDevices: true,
+          showImageNumberLabel: true,
+        });
+      }
+    })();
+
+    // NÃO remove os CDNs no unmount pra evitar race na navegação
     return () => {
-      document.body.removeChild(jqueryScript);
-      document.body.removeChild(lightboxScript);
-      document.head.removeChild(lightboxCSS);
-      document.head.removeChild(fontAwesome);
+      alive = false;
     };
   }, []);
 
+  // ---- Menu lateral ----
   useEffect(() => {
     const menuTrigger = document.getElementById("menu-trigger");
     const sidebar = document.getElementById("sidebar");
     const closeBtn = document.getElementById("close-btn");
 
     const openMenu = () => {
+      if (!sidebar) return;
       sidebar.classList.add("active");
       document.body.style.overflow = "hidden";
     };
 
     const closeMenu = () => {
+      if (!sidebar) return;
       sidebar.classList.remove("active");
       document.body.style.overflow = "";
     };
 
-    menuTrigger?.addEventListener("click", openMenu);
-    closeBtn?.addEventListener("click", closeMenu);
+    if (menuTrigger) menuTrigger.addEventListener("click", openMenu);
+    if (closeBtn) closeBtn.addEventListener("click", closeMenu);
 
     return () => {
-      menuTrigger?.removeEventListener("click", openMenu);
-      closeBtn?.removeEventListener("click", closeMenu);
+      if (menuTrigger) menuTrigger.removeEventListener("click", openMenu);
+      if (closeBtn) closeBtn.removeEventListener("click", closeMenu);
     };
   }, []);
 
@@ -71,7 +108,14 @@ export default function Gallery() {
           </span>
           <span className="menu-text">MENU</span>
         </div>
-        <button className="booking-button">RESERVAR AGORA</button>
+        <a
+          href="https://wa.me/558330112982?text=Ol%C3%A1%21%20Quero%20reservar%20na%20Casa%20P%C3%A9%20na%20Areia%20%E2%80%93%20Caminho%20de%20Mois%C3%A9s."
+          target="_blank"
+          rel="noreferrer"
+          className="booking-button"
+        >
+          RESERVAR AGORA
+        </a>
       </header>
 
       <nav className="sidebar" id="sidebar">
@@ -120,33 +164,27 @@ export default function Gallery() {
         </div>
 
         <div className="gallery-categories">
-          <button className="gallery-filter active" data-filter="all">
-            Todos
-          </button>
+          <button className="gallery-filter active">Todos</button>
           <button
             className="gallery-filter"
-            data-filter="property"
             onClick={() => (window.location.href = "/property")}
           >
             Propriedade
           </button>
           <button
             className="gallery-filter"
-            data-filter="beach"
             onClick={() => (window.location.href = "/beach")}
           >
             Praia
           </button>
           <button
             className="gallery-filter"
-            data-filter="amenities"
             onClick={() => (window.location.href = "/amenities")}
           >
             Comodidades
           </button>
           <button
             className="gallery-filter"
-            data-filter="experiences"
             onClick={() => (window.location.href = "/experiences")}
           >
             Experiências
@@ -195,8 +233,8 @@ export default function Gallery() {
               },
               {
                 src: "bomsucesso.jpg",
-                title: "Ruinas de Bom Sucesso",
-                desc: "Ruinas de bom sucesso",
+                title: "Ruínas de Bom Sucesso",
+                desc: "Ruínas de Bom Sucesso",
                 category: "beach",
               },
             ].map((img, idx) => (

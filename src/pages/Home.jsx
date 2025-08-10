@@ -47,7 +47,14 @@ export default function Home() {
           </span>
           <span className="menu-text">MENU</span>
         </div>
-        <button className="booking-button">RESERVAR AGORA</button>
+        <a
+          href="https://wa.me/558330112982?text=Ol%C3%A1%21%20Quero%20reservar%20na%20Casa%20P%C3%A9%20na%20Areia%20%E2%80%93%20Caminho%20de%20Mois%C3%A9s."
+          target="_blank"
+          rel="noreferrer"
+          className="booking-button"
+        >
+          RESERVAR AGORA
+        </a>
       </header>
 
       {/* Menu lateral */}
